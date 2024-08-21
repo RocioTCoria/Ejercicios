@@ -39,10 +39,15 @@ window.onload=function(){
         }, 1000);
 
     var chauboton = document.getElementById("salir");
+
     var pantallaprincipal = document.getElementById("principal");
+
+    pantallaprincipal.style.dislay="none";
+
     chauboton.addEventListener('click', function(){
 
         pantallaintermedia.style.display="none";
+        pantallaprincipal.style.dislay="block";
 
     });
 
