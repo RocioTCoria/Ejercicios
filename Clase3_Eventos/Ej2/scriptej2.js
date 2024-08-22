@@ -23,7 +23,21 @@ window.onload=function(){
 
     // Ejercicio 3
 
+    var scrollpantalla = document.getElementById("momentoscroll");
+    var chauchaupan = document.getElementById("chauchau");
 
+    scrollpantalla.style.display="none";
+
+    window.addEventListener('scroll', function(){
+
+        scrollpantalla.style.display="block";
+    })
+    
+    chauchaupan.addEventListener('click', function(){
+
+        scrollpantalla.style.display="none";
+
+    });
 }
 
 
