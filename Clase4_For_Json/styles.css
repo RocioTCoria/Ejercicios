@@ -1,0 +1,29 @@
+main {
+
+    background-color: aquamarine;
+    height: auto;
+    width: 80%;
+    display: block;
+    padding: 10px;
+    text-align: center;
+}
+
+.nombrecss {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: inline-block;
+}
+
+.apellidocss {
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
+    display: inline;
+    padding-left: 10px;
+}
+
+.contenedorcito {
+
+    padding: 5px;
+}
