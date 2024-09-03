@@ -74,6 +74,33 @@ window.onload=function(){
     subir.classList.add("botoncss");
 
     contenedor.appendChild(subir);
+
+
+    
+
 }
 
 // .length = devuelve la cantidad de elementos
+
+window.onload=function(){
+
+    let json = [{ nombre: nombre, apellido: apellido }]
+
+    let NuevaData = json.push ({})
+}
+
+
+RecargarLista();
+    document.getElementById("formulario").addEventListener("submit", function(event){
+
+        event.preventDefault();
+
+        var nombrealumno = document.getElementById("nombre").value;
+        var apellidoalumno = document.getElementById("apelldio").value;
+
+        alumnos.push ({nombre: nombre, apellido: apellido});
+
+        RecargarLista();
+        
+        document.getElementById("formulario").reset();
+    });
