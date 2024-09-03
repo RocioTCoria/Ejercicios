@@ -27,10 +27,12 @@ window.onload=function(){
     var chauchaupan = document.getElementById("chauchau");
 
     scrollpantalla.style.display="none";
-
+    var flag = true;
     window.addEventListener('scroll', function(){
-
-        scrollpantalla.style.display="block";
+        if (flag) {
+            scrollpantalla.style.display="block";
+            flag=false;
+        } 
     })
     
     chauchaupan.addEventListener('click', function(){
