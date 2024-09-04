@@ -42,8 +42,8 @@ window.onload=function(){
     contenedor.appendChild(titulo);
 
     for (let index = 0; index < alumnos.length; index++) {
-    // crear un h1 o algo en java //
     
+        // crear un h1 o algo en java //
     
     var nombresitos = document.createElement("h2");
     nombresitos.textContent = alumnos[index].nombre;
@@ -74,18 +74,6 @@ window.onload=function(){
     subir.classList.add("botoncss");
 
     contenedor.appendChild(subir);
-
-
-    
-
 }
 
 // .length = devuelve la cantidad de elementos
-
-window.onload=function(){
-
-    let json = [{ nombre: nombre, apellido: apellido }]
-
-    let NuevaData = json.push ({})
-}
-
