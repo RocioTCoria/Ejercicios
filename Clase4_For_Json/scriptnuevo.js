@@ -29,44 +29,46 @@ var alumnos = [{
 }
 ]
 
+// .length = devuelve la cantidad de elementos
 
-
-window.onload=function(){
+function mostrarAlumnos() {
 
     var contenedor = document.getElementById("contenedor");
+    
+    contenedor.innerHTML = ''; // Limpiar el contenido del contenedor antes de volver a mostrar la lista
 
+    // Crear el título
     var titulo = document.createElement("h1");
     titulo.textContent = "¿Quién no vino a la obra?";
     titulo.classList.add("titulocss");
-
     contenedor.appendChild(titulo);
 
-    for (let index = 0; index < alumnos.length; index++) {
-    
-        // crear un h1 o algo en java //
-    
-    var nombresitos = document.createElement("h2");
-    nombresitos.textContent = alumnos[index].nombre;
-    nombresitos.classList.add("nombrecss"); // para poder darle diseño en css
-    
-    var segundotitulo = document.createElement("h2");
-    segundotitulo.textContent = alumnos[index].apellido;
-    segundotitulo.classList.add("apellidocss");
+    // Mostrar cada alumno en el array
+    alumnos.forEach((alumno) => {
 
-    var section = document.createElement("section");// crea un contenedor mas chiquito
-    section.classList.add("contenedorcito");
+        var section = document.createElement("section");
+        section.classList.add("contenedorcito");
 
-    section.appendChild(nombresitos); // nombresitos y segtitulo quedan dentro del SECTION
-    section.appendChild(segundotitulo); 
-    contenedor.appendChild(section); // se agrega dentro del main (en index.html)
+        var nombre = document.createElement("h2");
+        nombre.textContent = alumno.nombre;
+        nombre.classList.add("nombrecss");
 
-    // alert("nombre: " + alumnos[index].nombre + " apellido: " + alumnos[index].apellido)
+        var apellido = document.createElement("h2");
+        apellido.textContent = alumno.apellido;
+        apellido.classList.add("apellidocss");
 
-    var marcar = document.createElement("input");
-    marcar.type="checkbox";
-    marcar.classList.add("boton");
-    section.appendChild(marcar);
-} 
+        section.appendChild(nombre);
+        section.appendChild(apellido);
+
+        // Checkbox para marcar si no asistió
+        var marcar = document.createElement("input");
+        marcar.type = "checkbox";
+        marcar.classList.add("boton");
+        section.appendChild(marcar);
+
+        contenedor.appendChild(section);
+
+    });
 
     var subir = document.createElement("button");
     subir.textContent = ":O Como que no vino :O";
@@ -76,4 +78,75 @@ window.onload=function(){
     contenedor.appendChild(subir);
 }
 
-// .length = devuelve la cantidad de elementos
+// Función para agregar un nuevo alumno
+function agregarAlumno(event) {
+    event.preventDefault(); // Evita que la página se recargue
+
+    var nombre = document.getElementById('nombre').value;
+    var apellido = document.getElementById('apellido').value;
+
+    // Agregar el nuevo alumno al array
+    alumnos.push({
+        nombre: nombre,
+        apellido: apellido
+    });
+
+    // Mostrar la lista actualizada
+    mostrarAlumnos();
+
+    // Limpiar el formulario
+    document.getElementById('formulario').reset();
+}
+
+
+
+// Función para validar calificaciones
+function validarCalificacion(calificacion) {
+    return calificacion >= 1 && calificacion <= 10;
+}
+
+// Función para calcular el promedio
+function calcularPromedio(calificaciones) {
+    var total = calificaciones.reduce((sum, calificacion) => sum + calificacion, 0);
+    return total / calificaciones.length;
+}
+
+// Función para agregar un nuevo alumno
+function agregarAlumno(event) {
+    event.preventDefault(); // Evita que la página se recargue
+
+    // Obtener los valores del formulario
+    var nombre = document.getElementById('nombre').value;
+    var apellido = document.getElementById('apellido').value;
+    var calificacion1 = parseFloat(document.getElementById('calificacion1').value);
+    var calificacion2 = parseFloat(document.getElementById('calificacion2').value);
+    var calificacion3 = parseFloat(document.getElementById('calificacion3').value);
+    var errorMsg = document.getElementById('error-msg');
+
+    // Calcular el promedio del alumno
+    var promedio = calcularPromedio([calificacion1, calificacion2, calificacion3]);
+
+    // Agregar el nuevo alumno al array
+    alumnos.push({
+        nombre: nombre,
+        apellido: apellido,
+        promedio: promedio
+    });
+
+    // Mostrar la lista actualizada
+    mostrarAlumnos();
+
+    // Limpiar el formulario y el mensaje de error
+    document.getElementById('formulario').reset();
+    errorMsg.textContent = '';
+}
+
+// Ejecutar una vez que la página haya cargado
+window.onload = function() {
+    // Mostrar los alumnos existentes
+    mostrarAlumnos();
+
+    // Agregar el evento submit al formulario para agregar nuevos alumnos
+    var formulario = document.getElementById('formulario');
+    formulario.addEventListener('submit', agregarAlumno);
+}
