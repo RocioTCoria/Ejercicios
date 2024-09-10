@@ -121,24 +121,34 @@ function agregarAlumno(event) {
     var calificacion1 = parseFloat(document.getElementById('calificacion1').value);
     var calificacion2 = parseFloat(document.getElementById('calificacion2').value);
     var calificacion3 = parseFloat(document.getElementById('calificacion3').value);
-    var errorMsg = document.getElementById('error-msg');
+
+    // Validar que el nombre no esté vacío y que las calificaciones sean válidas
+    if (nombre.trim() === '' || apellido.trim() === '') {
+        return; // Si el nombre o apellido están vacíos, no se agrega el alumno
+    }
+    
+    if (!validarCalificacion(calificacion1) || !validarCalificacion(calificacion2) || !validarCalificacion(calificacion3)) {
+        return; // Si las calificaciones no son válidas, no se agrega el alumno
+    }
 
     // Calcular el promedio del alumno
     var promedio = calcularPromedio([calificacion1, calificacion2, calificacion3]);
 
-    // Agregar el nuevo alumno al array
-    alumnos.push({
-        nombre: nombre,
-        apellido: apellido,
-        promedio: promedio
-    });
+    // Solo agregar si el promedio es mayor o igual a 6 (alumno aprobado)
+    if (promedio >= 6) {
+        // Agregar el nuevo alumno al array
+        alumnos.push({
+            nombre: nombre,
+            apellido: apellido,
+            promedio: promedio
+        });
 
-    // Mostrar la lista actualizada
-    mostrarAlumnos();
+        // Mostrar la lista actualizada
+        mostrarAlumnos();
+    }
 
-    // Limpiar el formulario y el mensaje de error
+    // Limpiar el formulario
     document.getElementById('formulario').reset();
-    errorMsg.textContent = '';
 }
 
 // Ejecutar una vez que la página haya cargado
