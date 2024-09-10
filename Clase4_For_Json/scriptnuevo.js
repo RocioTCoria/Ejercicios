@@ -35,15 +35,15 @@ function mostrarAlumnos() {
 
     var contenedor = document.getElementById("contenedor");
     
-    contenedor.innerHTML = ''; // Limpiar el contenido del contenedor antes de volver a mostrar la lista
+    contenedor.innerHTML = ''; // Limpia el contenido de "contenedor" antes de volver a mostrar la lista para que no se duplique el contenido
 
-    // Crear el título
+    // Crea el título (manera de crear un elemento)
     var titulo = document.createElement("h1");
     titulo.textContent = "¿Quién no vino a la obra?";
     titulo.classList.add("titulocss");
     contenedor.appendChild(titulo);
 
-    // Mostrar cada alumno en el array
+    // Muestra cada alumno en el array. Se recorre el "array alumnos" usando forEach, lo que significa que la función de adentro se ejecuta una vez por cada alumno en el array
     alumnos.forEach((alumno) => {
 
         var section = document.createElement("section");
@@ -60,7 +60,6 @@ function mostrarAlumnos() {
         section.appendChild(nombre);
         section.appendChild(apellido);
 
-        // Checkbox para marcar si no asistió
         var marcar = document.createElement("input");
         marcar.type = "checkbox";
         marcar.classList.add("boton");
@@ -78,85 +77,90 @@ function mostrarAlumnos() {
     contenedor.appendChild(subir);
 }
 
-// Función para agregar un nuevo alumno
-function agregarAlumno(event) {
+
+
+// AGREGAR UN NUEVO ALUMNO
+function agregarAlumno(event) { // "event" se refiere a cuando se envia el formulario, ya que cuando ocurre, sucede el evento de agregar a la nueva persona.
     event.preventDefault(); // Evita que la página se recargue
 
     var nombre = document.getElementById('nombre').value;
     var apellido = document.getElementById('apellido').value;
 
-    // Agregar el nuevo alumno al array
+    // Agrega el nuevo alumno al array
     alumnos.push({
         nombre: nombre,
         apellido: apellido
     });
 
-    // Mostrar la lista actualizada
+    // Se llama a la función mostrarAlumnos() para que actualice la lista y muestre al nuevo alumno
     mostrarAlumnos();
 
-    // Limpiar el formulario
+    // Que los espacios de los inputs queden limpitos
     document.getElementById('formulario').reset();
 }
 
 
 
-// Función para validar calificaciones
-function validarCalificacion(calificacion) {
-    return calificacion >= 1 && calificacion <= 10;
+// VALIDAR CALIFICACIONES (APROBADO ENTRA, DESAPROBADO NO)
+function validarCalificacion(calificacion) { // "calificacion" es un parametro que se intercambia por los valores indicados debajo
+    return calificacion >= 1 && calificacion <= 10; // que la nota de la calificacion debe estar entre 1 y 10
 }
 
-// Función para calcular el promedio
-function calcularPromedio(calificaciones) {
-    var total = calificaciones.reduce((sum, calificacion) => sum + calificacion, 0);
-    return total / calificaciones.length;
+
+
+// CALCULAR PROMEDIO
+function calcularPromedio(calificaciones) { // "calificaciones" es un parametro que se supone que sea un array de numeros
+    var total = calificaciones.reduce((sum, calificacion) => sum + calificacion, 0); // "sum" suma total de las calificaciones // "calificacion" Es el valor actual del array de calificaciones en cada iteración
+    return total / calificaciones.length; // "total" es la suma de las calificaciones dividido la cantidad de elementos (.length)
 }
 
-// Función para agregar un nuevo alumno
+// ".reduce" es un método de arrays en JavaScript que recorre todos los elementos del array y los reduce a un solo valor. // el "0" es el punto de partida de "sum", o sea su valor inicial
+
+
+
+// AGREGAR UN NUEVO ALUMNO EN FUNCION DEL PROMEDIO
 function agregarAlumno(event) {
-    event.preventDefault(); // Evita que la página se recargue
+    event.preventDefault();
 
-    // Obtener los valores del formulario
     var nombre = document.getElementById('nombre').value;
     var apellido = document.getElementById('apellido').value;
-    var calificacion1 = parseFloat(document.getElementById('calificacion1').value);
+    var calificacion1 = parseFloat(document.getElementById('calificacion1').value); // parseFloat(): el valor, que inicialmente es tratado como texto "7,50", se transforma en un valor numérico que puede incluir decimales: 7,50. 
     var calificacion2 = parseFloat(document.getElementById('calificacion2').value);
     var calificacion3 = parseFloat(document.getElementById('calificacion3').value);
 
-    // Validar que el nombre no esté vacío y que las calificaciones sean válidas
+    // Valida que el nombre y apellido no este vacío
     if (nombre.trim() === '' || apellido.trim() === '') {
-        return; // Si el nombre o apellido están vacíos, no se agrega el alumno
+        return; // Si el nombre o apellido estan vacíos, no se agrega
     }
     
+    // Valida que las calificaciones no esten vacias
     if (!validarCalificacion(calificacion1) || !validarCalificacion(calificacion2) || !validarCalificacion(calificacion3)) {
-        return; // Si las calificaciones no son válidas, no se agrega el alumno
+        return; 
     }
 
-    // Calcular el promedio del alumno
+    // Calcula el promedio del alumno
     var promedio = calcularPromedio([calificacion1, calificacion2, calificacion3]);
 
-    // Solo agregar si el promedio es mayor o igual a 6 (alumno aprobado)
+    // Solo agrega si el promedio es mayor o igual a 6 (alumno aprobado)
     if (promedio >= 6) {
-        // Agregar el nuevo alumno al array
+
         alumnos.push({
             nombre: nombre,
             apellido: apellido,
             promedio: promedio
         });
 
-        // Mostrar la lista actualizada
+        // Muestra la lista actualizada con el nuevo alumno aprobado
         mostrarAlumnos();
     }
 
-    // Limpiar el formulario
     document.getElementById('formulario').reset();
 }
 
-// Ejecutar una vez que la página haya cargado
+// Ejecuta una vez que la página haya cargado
 window.onload = function() {
-    // Mostrar los alumnos existentes
-    mostrarAlumnos();
-
-    // Agregar el evento submit al formulario para agregar nuevos alumnos
+    
+    mostrarAlumnos(); // Muestra los alumnos
     var formulario = document.getElementById('formulario');
     formulario.addEventListener('submit', agregarAlumno);
 }
