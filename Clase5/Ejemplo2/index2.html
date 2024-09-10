@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+        #userList {
+            list-style: none;
+            padding: 0;
+        }
+        #userList li {
+            padding: 5px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+        }
+        #userDetails {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lista de Usuarios</h1>
+    
+    <button id="loadUsersBtn">Cargar alumnos</button>
+    <button id="cargarprofe">Cargar profesores</button>
+
+    <ul id="userList"></ul>
+
+    <div id="userDetails">
+        <h2>Detalles de alumnos</h2>
+        <p id="userName">Nombre: <span></span></p>
+        <p id="userEmail">Email: <span></span></p>
+        <p id="userPhone">Teléfono: <span></span></p>
+    </div>
+
+    <div id="userDetails1"></div>
+        <h2>Detalles de profesores</h2>
+        <p id="userName1">Nombre: <span></span></p>
+        <p id="userEmail1">Email: <span></span></p>
+        <p id="userPhone1">Teléfono: <span></span></p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
