@@ -1,18 +1,27 @@
 var alumnos = [{
 
-    "nombre":"Rocio",
-    "apellido":"Coria"
+    "id":"0",
+    "nombre":"Chocolate",
+    "precio":"1000",
+    "cantidad":"5"
 },{
 
-    "nombre":"Uriel",
-    "apellido":"Verdú"
+    "id":"1",
+    "nombre":"Bombon",
+    "precio":"500",
+    "cantidad":"1"
 },{
 
-    "nombre":"Milagros",
-    "apellido":"Coria"
+    "id":"3",
+    "nombre":"Gomitas de Ositos",
+    "precio":"800",
+    "cantidad":"12"
 },{
 
-    "nombre":"Sheila",
-    "apellido":"Verdú"
+    "id":"4",
+    "nombre":"Caramelitos de banana",
+    "precio":"150",
+    "cantidad":"80"
 }
 ]
+
