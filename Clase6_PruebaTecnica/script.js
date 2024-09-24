@@ -29,12 +29,12 @@ function AgregarProducto () {
 
     var infoprin = document.getElementById("Infoprincipal");
 
-    contenedor.innerHTML = ''; 
+    infoprin.innerHTML = ''; 
 
     var titulo = document.createElement("h1");
     titulo.textContent = "Agregue un nuevo producto";
     titulo.classList.add("titulocss");
-    contenedor.appendChild(titulo);
+    infoprin.appendChild(titulo);
 
     productos.forEach((producto) => {
 
@@ -57,7 +57,7 @@ function AgregarProducto () {
         section.appendChild(precio);
         section.appendChild(cantidad);
 
-        contenedor.appendChild(section);
+        infoprin.appendChild(section);
 
     });
 }
