@@ -2,26 +2,26 @@ var productos = [{
 
     "id":"0",
     "nombre":"Chocolate",
-    "precio":"1000",
-    "cantidad":"$5"
+    "precio":"$1000",
+    "cantidad":"5"
 },{
 
     "id":"1",
     "nombre":"Bombon",
-    "precio":"500",
-    "cantidad":"$1,5"
+    "precio":"$500",
+    "cantidad":"1"
 },{
 
     "id":"3",
     "nombre":"Gomitas de Ositos",
-    "precio":"800",
-    "cantidad":"$12"
+    "precio":"$800",
+    "cantidad":"12"
 },{
 
     "id":"4",
     "nombre":"Caramelitos de banana",
-    "precio":"150",
-    "cantidad":"$80"
+    "precio":"$150",
+    "cantidad":"80"
 }
 ]
 
@@ -30,12 +30,17 @@ window.onload = function() {
     MostrarProducto();
     var formulario = document.getElementById('formulario');
     formulario.addEventListener('submit', AgregarProducto);
-    
+
 function MostrarProducto () {
 
     var infoprin = document.getElementById("Infoprincipal");
 
-    infoprin.innerHTML = ''; 
+    infoprin.innerHTML = '';
+    
+    var titulo = document.createElement("h1");
+    titulo.textContent = "Lista de Productos";
+    titulo.classList.add("titulocss");
+    infoprin.appendChild(titulo);
 
     productos.forEach((producto) => {
 
@@ -51,7 +56,7 @@ function MostrarProducto () {
         precio.classList.add("preciocss");
 
         var cantidad = document.createElement("h2");
-        cantidad.textContent = producto.precio;
+        cantidad.textContent = "Cantidad: " + producto.cantidad;
         cantidad.classList.add("cantidadcss");
 
         section.appendChild(nombre);
@@ -70,7 +75,7 @@ function AgregarProducto (event) {
     var precio = document.getElementById('precio').value;
     var cantidad = document.getElementById('cantidad').value;
     
-    alumnos.push({
+    productos.push({
 
         nombre: nombre,
         precio: precio,
@@ -82,5 +87,7 @@ function AgregarProducto (event) {
 
     document.getElementById('formulario').reset();
 }
+
+
 
 }
