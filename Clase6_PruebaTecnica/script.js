@@ -25,16 +25,17 @@ var productos = [{
 }
 ]
 
-function AgregarProducto () {
+window.onload = function() {
+    
+    MostrarProducto();
+    var formulario = document.getElementById('formulario');
+    formulario.addEventListener('submit', AgregarProducto);
+    
+function MostrarProducto () {
 
     var infoprin = document.getElementById("Infoprincipal");
 
     infoprin.innerHTML = ''; 
-
-    var titulo = document.createElement("h1");
-    titulo.textContent = "Agregue un nuevo producto";
-    titulo.classList.add("titulocss");
-    infoprin.appendChild(titulo);
 
     productos.forEach((producto) => {
 
@@ -60,4 +61,26 @@ function AgregarProducto () {
         infoprin.appendChild(section);
 
     });
+}
+
+function AgregarProducto (event) { 
+    event.preventDefault(); 
+
+    var nombre = document.getElementById('nombre').value;
+    var precio = document.getElementById('precio').value;
+    var cantidad = document.getElementById('cantidad').value;
+    
+    alumnos.push({
+
+        nombre: nombre,
+        precio: precio,
+        cantidad: cantidad,
+    });
+
+    
+    MostrarProducto();
+
+    document.getElementById('formulario').reset();
+}
+
 }
