@@ -1,0 +1,40 @@
+* {
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    background: linear-gradient(to top, #471903, #eba04a);
+    background-repeat: no-repeat;
+    min-height: 641px;
+    font-family: "Playwrite DE Grund", cursive;
+}
+
+h1 {
+
+    padding-top: 20px;
+    text-align: center;
+}
+
+p {
+
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#foto {
+
+    text-align: center;
+    transition: transform 0.5s ease;
+
+}
+
+#foto img {
+
+    border-radius: 10px;
+    width: 25%;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 1);
+    transform: scale (1.5);
+}

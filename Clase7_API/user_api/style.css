@@ -1,0 +1,64 @@
+body {
+    
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+}
+
+header {
+
+    background-color: #81bff5; /* Celeste pastel */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #6193be; /* Borde inferior más oscuro */
+}
+
+header h1 {
+
+    margin: 0;
+    font-size: 24px;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+#thumnail img {
+
+    border-radius: 10%;
+    width: 80px; 
+    height: 80px;
+    padding: 10px 30px 10px 0px;
+    display: flex;
+    float: right;
+}
+
+#datos {
+
+    padding: 10px;
+    font-weight: 100;
+}
+
+h2 {
+
+    padding-top: 20px;
+}
+
+body{
+
+    background-color: #cee6fc;
+    min-height: 100vdh;
+}
+
+main{
+
+    margin: 0px 100px;
+    background-color: #b0cee9;
+    padding-left: 4%;
+    border-radius: 8px;
+}
+
