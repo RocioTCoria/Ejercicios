@@ -1,10 +1,20 @@
 body {
-    
+
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
     margin: 0;
     padding: 0;
     background-color: #f0f8ff;
+}
+
+main {
+
+    margin: 20px 100px;
+    background-color: #b0cee9;
+    padding-left: 4%;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    height: 500px;
 }
 
 header {
@@ -24,23 +34,24 @@ header h1 {
 }
 
 header p {
+
     margin: 5px 0;
 }
 
 #thumnail img {
 
-    border-radius: 10%;
-    width: 80px; 
-    height: 80px;
-    padding: 10px 30px 10px 0px;
+    border-radius: 5px;
+    width: 15%;
+    padding: 30px 180px 10px 0px;
     display: flex;
     float: right;
 }
 
 #datos {
 
-    padding: 10px;
+    padding: 0px 30px 0px 700px;
     font-weight: 100;
+    float: right;
 }
 
 h2 {
@@ -54,11 +65,18 @@ body{
     min-height: 100vdh;
 }
 
-main{
+#clima {
 
-    margin: 0px 100px;
-    background-color: #b0cee9;
-    padding-left: 4%;
-    border-radius: 8px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
 }
 
+#foto img {
+
+    position: relative;
+    top: -170px;
+    border-radius: 10px;
+    width: 18%;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    transform: scale (1.5);
+}
