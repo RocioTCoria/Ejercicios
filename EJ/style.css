@@ -1,0 +1,56 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.card-libro {
+    display: flex; /* Usamos Flexbox para alinear la información a la izquierda y la imagen a la derecha */
+    justify-content: space-between;
+    align-items: center;
+    width: 400px; /* Ajusta según el tamaño deseado */
+    border: 2px solid #335D92;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    margin: 20px auto; /* Centrar en la página */
+}
+
+.informacion-libro {
+    flex: 1; /* Ocupa el espacio restante para que la imagen tenga su propio espacio */
+    margin-right: 20px; /* Separación entre el texto y la imagen */
+}
+
+.titulo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.escritor {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.boton-comprar {
+    display: inline-block;
+    background-color: #335D92;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.boton-comprar:hover {
+    background-color: #2a4b7a; /* Un tono más oscuro en hover */
+}
+
+.imagen-libro img {
+    max-width: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+}
