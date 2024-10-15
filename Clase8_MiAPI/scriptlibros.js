@@ -18,6 +18,40 @@ window.onload = async function() {
         const data = await response.json();
         console.log(data.record);
 
+        const listaLibros = document.getElementById("lista");
+        for (let index = 0; index < data.record.length; index++) {
+
+            var titulo = document.createElement("h2");
+            titulo.textContent = data.record[index].titulo;
+            listaLibros.append(titulo);
+            titulo.classList.add("titulo");
+
+            var autor = document.createElement("h3");
+            autor.textContent = data.record[index].autor;
+            listaLibros.append(autor);
+            autor.classList.add("autor");
+
+            var generos = document.createElement("h4");
+            generos.textContent = "Género: " + data.record[index].generos;
+            listaLibros.append(generos);
+            generos.classList.add("genero");
+
+            var valor = document.createElement("h3");
+            valor.textContent = "$" + data.record[index].valor;
+            listaLibros.append(valor);
+            valor.classList.add("valor");
+
+            var section = document.createElement("section");
+            section.classList.add("contenedorcito");
+
+            section.appendChild(titulo);
+            section.appendChild(autor);
+            section.appendChild(generos);
+            section.appendChild(valor);
+
+            listaLibros.append(section);
+        }
+
     } catch (error) {
         console.error('Error fetching data', error);
     }

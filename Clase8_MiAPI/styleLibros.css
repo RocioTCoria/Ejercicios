@@ -1,0 +1,62 @@
+body {
+
+    background: linear-gradient(to bottom, rgb(241, 104, 127), rgb(87, 5, 17));
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+#lista {
+
+    columns: 2 500px;
+}
+
+.contenedorcito {
+
+    margin: auto;
+    margin-top: 10px;
+    width: 80%;
+    border: 3px solid #2e2546;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #d7ccf5;
+    box-shadow: 0 4px 8px 0 rgba(43, 2, 2, 0.829)
+}
+
+h1 {
+
+    margin: 0px;
+}
+
+h3 {
+
+    margin: 0px;
+    font-weight: 500;
+}
+
+.autor {
+
+    text-align: center;
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+
+.genero {
+
+    font-weight: 500;
+    margin: 0;
+}
+
+.valor {
+
+    font-weight: 800;
+    margin: 0px;
+    display: flex;
+}
+
+.titulo {
+
+    text-align: center;
+    font-weight: 1000;
+    margin: 0;
+}

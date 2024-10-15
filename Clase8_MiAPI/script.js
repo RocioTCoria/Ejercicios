@@ -1,7 +1,7 @@
 const binId = '670ee6c5ad19ca34f8b92891';
 const apiKey = '$2a$10$F0lNVxklU1fgy6.6uXvkF.V9ZQw5nYfUDSmI4zrVsuyA7iBZnRp22'; 
 
-async function registerUser(email, password, role) {
+async function registerLibro(titulo, autor, generos, valor) {
     const url = `https://api.jsonbin.io/v3/b/${binId}/latest`;
 
     try {
@@ -12,14 +12,8 @@ async function registerUser(email, password, role) {
         });
         const data = await response.json();
 
-        const userExists = data.record.find(user => user.email === email);
-        if (userExists) {
-            document.getElementById('message').textContent = 'Este correo ya está registrado.';
-            return;
-        }
-
-        const newUser = { email, password, role };
-        data.record.push(newUser);
+        const newLibro = { "titulo": titulo, "autor": autor, "generos": generos, "valor": valor };
+        data.record.push(newLibro);
 
         const updateResponse = await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
             method: 'PUT',
@@ -69,12 +63,13 @@ async function loginUser(email, password) {
     }
 }
 
-document.getElementById('registerForm').addEventListener('submit', function (e) {
+document.getElementById('registerLibro').addEventListener('submit', function (e) {
     e.preventDefault();
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    const role = document.getElementById('registerRole').value; 
-    registerUser(email, password, role);
+    const titulo = document.getElementById('registerTitulo').value;
+    const autor = document.getElementById('registerAutor').value;
+    const generos = document.getElementById('registerGeneros').value;
+    const valor = document.getElementById('registerValor').value;  
+    registerLibro(titulo, autor, generos, valor);
 });
 
 document.getElementById('loginForm').addEventListener('submit', function (e) {
