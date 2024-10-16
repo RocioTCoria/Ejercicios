@@ -12,16 +12,21 @@ async function registerLibro(titulo, autor, generos, valor) {
         });
         const data = await response.json();
 
-        const newLibro = { "titulo": titulo, "autor": autor, "generos": generos, "valor": valor };
+        const newLibro = 
+        { "titulo": titulo, 
+            "autor": autor, 
+            "generos": generos, 
+            "valor": valor };
+
         data.record.push(newLibro);
 
-        const updateResponse = await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+        const updateResponse = await fetch(url, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'X-Master-Key': apiKey
             },
-            body: JSON.stringify(data.record)
+            body: JSON.stringify(data)
         });
 
         if (updateResponse.ok) {

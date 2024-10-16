@@ -60,3 +60,15 @@ h3 {
     font-weight: 1000;
     margin: 0;
 }
+
+.boton {
+
+    background-color: #2e2546;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(43, 2, 2, 0.2);
+    margin-left: 450px;
+    cursor: pointer;
+}

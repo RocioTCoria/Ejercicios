@@ -41,6 +41,13 @@ window.onload = async function() {
             listaLibros.append(valor);
             valor.classList.add("valor");
 
+            var boton = document.createElement("button");
+            boton.textContent = "Comprar";
+            listaLibros.append(boton);
+            boton.classList.add("boton");
+            boton.addEventListener('click', function() {
+                alert("Compra realizada. ¡Disfruta tu libro!");
+        });
             var section = document.createElement("section");
             section.classList.add("contenedorcito");
 
@@ -48,6 +55,7 @@ window.onload = async function() {
             section.appendChild(autor);
             section.appendChild(generos);
             section.appendChild(valor);
+            section.appendChild(boton);
 
             listaLibros.append(section);
         }
@@ -56,6 +64,8 @@ window.onload = async function() {
         console.error('Error fetching data', error);
     }
 
+    
+    
 }
 
 
